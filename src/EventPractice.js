@@ -3,18 +3,20 @@ import React, { Component } from 'react';
 
 class EventPractice extends Component {
     state = {
-        message: ''
+        username: '',
+        message: '',
     }
     
     handleChange(e) {
         this.setState({
-            message: e.target.value
-        });
+            [e.target.name]: e.target.value
+                });
     }
 
     handleClick() {
-        alert(this.state.message);
+        alert(this.state.username + ':' + this.state.message);
         this.setState({
+            username: '',
             message: ''
         });
     }
@@ -24,10 +26,17 @@ class EventPractice extends Component {
         <h1>이벤트 연습</h1>
         <input
             type="text"
-            name="message"
-            placeholder="아무거나 입력해 보세요"
-            value={this.state.message}
+            name="username"
+            placeholder="tㅏ용자명"
+            value={this.state.username}
             onChange={this.handleChange}
+        />
+        <input
+        type="text"
+        name="message"
+        placeholder="아무거나 입력해 보세요"
+        value={this.state.message}
+        onChange={this.handleChange}
         />
         <button onClick={this.handeClick}>확인</button>
       </div>
