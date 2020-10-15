@@ -10,8 +10,16 @@ const IterationSample = () => {
     const [inputText, setInputext] = useState('');
     const [nextId, setNextId] = useState(5);
 
-    const nameList = names.map(name => <li key={name.id}>{name.text}</li>)
-    return <ul>{nameList}</ul>;
+    const onChange = e => setInputext(e.target.value);
+
+    const namesList = names.map(name => <li key={name.id}>{name.text}</li>)
+    return (
+        <>
+            <input value={inputText} onChange={onChange} />
+            <button>추가</button>
+            <ul>{namesList}</ul>
+        </>
+    );
 }
 
 export default IterationSample;
