@@ -28,6 +28,12 @@ handleClick = () => {
     });
   }
 
+  handleKeyPress = (e) => {
+      if(e.key === 'Enter'){
+          this.handleClick();
+      }
+  }
+
 
 
 render() {
@@ -47,6 +53,7 @@ render() {
           placeholder="아무거나 입력해 보세요"
           value={this.state.message}
           onChange={this.handleChange}
+          onKeyPress={this.handleKeyPress}
         />
         <button onClick={this.handleClick}>확인</button>
       </div>
